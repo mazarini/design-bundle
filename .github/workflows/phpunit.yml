@@ -1,0 +1,40 @@
+name: phpunit
+
+on:
+  push:
+    branches: [ "master", "dev", "actions" ]
+  pull_request:
+    branches: [ "master", "dev", "actions" ]
+
+permissions:
+  contents: read
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+    - uses: actions/checkout@v3
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+    - name: Install Composer Dependencies
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    - name: Create Database
+      run: cp var/data/empty.db var/data/test.db
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.10
+    - name: Build
+      run: |
+        npm install
+        npm run dev
+    - name: Execute tests (Unit and Feature tests) via PHPUnit
+      run: bin/phpunit --configuration .ide/phpunit.xml

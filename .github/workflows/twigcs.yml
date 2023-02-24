@@ -1,0 +1,31 @@
+name: twigcs
+
+on:
+  push:
+    branches: [ "master", "actions" ]
+  pull_request:
+    branches: [ "master", "actions" ]
+
+permissions:
+  contents: read
+jobs:
+  twigcs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+    - uses: actions/checkout@v3
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+    - name: Install Dependencies
+      run: |
+        composer global require friendsoftwig/twigcs -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    - name: Execute twigcs control
+      run: ~/.composer/vendor/bin/twigcs --config=.ide/twig_cs
