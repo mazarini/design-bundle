@@ -1,0 +1,5 @@
+controllers:
+    resource:
+        path: ../../Controller/
+        namespace: Mazarini\DesignBundle\Controller
+    type: attribute

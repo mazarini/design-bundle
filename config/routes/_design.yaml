@@ -1,0 +1,3 @@
+_design:
+    resource: '@MazariniDesignBundle/src/Resources/config/routes.yaml'
+    prefix: /design
