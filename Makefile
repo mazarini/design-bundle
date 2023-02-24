@@ -77,7 +77,7 @@ cover-text: phpunit-init
 	XDEBUG_MODE=coverage bin/phpunit --configuration .ide/phpunit.xml --cache-result-file var/cache/phpunit.result.cache --coverage-text
 
 phpunit-init:
-	echo "not cp var/data/empty.db var/data/test.db"
+	cp var/data/empty.db var/data/test.db
 
 
 #*************************************************************************#
