@@ -1,0 +1,11 @@
+<ul>
+    {% for node in tree %}
+        <li>
+            {{ node.label }}
+            / ({{ node.slug }})
+        </li>
+        {% if node is iterable %}
+            {% include '@MazariniDesign/design/_list.html.twig' with {'tree': node} only %}
+        {% endif %}
+    {% endfor %}
+</ul>

@@ -21,6 +21,7 @@
 
 namespace Mazarini\DesignBundle\Controller;
 
+use Mazarini\DesignBundle\Util\Folder;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,8 +31,11 @@ class DesignController extends AbstractController
     #[Route('/', name: 'mazarini_design_index')]
     public function index(): Response
     {
+        $theme = \dirname(__DIR__, 2).'/templates/theme';
+        $tree = new Folder(\dirname($theme), $theme);
+
         return $this->render('@MazariniDesign/design/index.html.twig', [
-            'controller_name' => 'DesignController',
+            'tree' => $tree,
         ]);
     }
 }
