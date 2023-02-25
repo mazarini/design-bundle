@@ -28,14 +28,36 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DesignController extends AbstractController
 {
+    private string $template;
+    private string $theme;
+
     #[Route('/', name: 'mazarini_design_index')]
     public function index(): Response
     {
-        $theme = \dirname(__DIR__, 2).'/templates/theme';
-        $tree = new Folder(\dirname($theme), $theme);
+        $tree = new Folder($this->template, $this->theme);
 
         return $this->render('@MazariniDesign/design/index.html.twig', [
             'tree' => $tree,
         ]);
+    }
+
+    /**
+     * Set the value of template.
+     */
+    public function setTemplate(string $template): self
+    {
+        $this->template = $template;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of theme.
+     */
+    public function setTheme(string $theme): self
+    {
+        $this->theme = $theme;
+
+        return $this;
     }
 }
