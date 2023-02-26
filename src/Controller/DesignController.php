@@ -47,7 +47,7 @@ class DesignController extends AbstractController
     {
         $tree = new Folder($this->template, $this->theme);
 
-        return $this->render('/'.$template, [
+        return $this->render('/'.$template.'.twig', [
             'tree' => $tree,
             'template' => $template,
         ]);
