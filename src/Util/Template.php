@@ -29,7 +29,7 @@ class Template
 
     public function __construct(string $root, string $template)
     {
-        $this->template = substr($template, \strlen($root));
+        $this->template = substr($template, \strlen($root) + 1);
         $this->label = substr(basename($template, '.html.twig'), 3);
     }
 

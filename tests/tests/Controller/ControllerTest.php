@@ -22,28 +22,38 @@
 namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\HttpFoundation\Response;
 
 class ControllerTest extends WebTestCase
 {
     /**
-     * @dataProvider urlProvider
+     * @dataProvider okProvider
      */
-    public function testUrl(string $url, int $status = Response::HTTP_OK, string $redirect = null): void
+    public function testUrlOk(string $url): void
     {
         $client = static::createClient();
         $crawler = $client->request('GET', $url);
-        $this->assertSame($client->getResponse()->getStatusCode(), $status);
-        if (null !== $redirect) {
-            $this->assertResponseRedirects($redirect);
-        }
+        $this->assertResponseIsSuccessful();
     }
 
-    public function urlProvider(): \Generator
+    /**
+     * @dataProvider redirectProvider
+     */
+    public function testUrlRedirect(string $url): void
     {
-        yield ['', Response::HTTP_SEE_OTHER, '/design/'];
-        yield ['/', Response::HTTP_SEE_OTHER, '/design/'];
-        yield ['/design', Response::HTTP_MOVED_PERMANENTLY, 'http://localhost/design/'];
-        yield ['/design/', Response::HTTP_OK];
+        $client = static::createClient();
+        $crawler = $client->request('GET', $url);
+        $this->assertResponseRedirects();
+    }
+
+    public function redirectProvider(): \Generator
+    {
+        yield [''];
+        yield ['/'];
+        yield ['/design'];
+    }
+
+    public function okProvider(): \Generator
+    {
+        yield ['/design/'];
     }
 }

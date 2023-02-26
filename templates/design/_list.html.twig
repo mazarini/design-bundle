@@ -1,11 +1,12 @@
 <ul>
     {% for node in tree %}
-        <li>
-            {{ node.label }}
-            / ({{ node.slug }})
-        </li>
         {% if node is iterable %}
-            {% include '@MazariniDesign/design/_list.html.twig' with {'tree': node} only %}
+            <li>{{ node.label }}</li>
+            {% include '@MazariniDesign/design/_list.html.twig' with {'template': template, 'tree': node} only %}
+        {% else %}
+            <li>
+                <a href="{{ path('mazarini_design_theme', {'template': node.template}) }}">{{ node.label }}</a>
+            </li>
         {% endif %}
     {% endfor %}
 </ul>

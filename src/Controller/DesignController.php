@@ -31,13 +31,25 @@ class DesignController extends AbstractController
     private string $template;
     private string $theme;
 
-    #[Route('/', name: 'mazarini_design_index')]
+    #[Route('/', name: 'mazarini_design_index', requirements: ['template' => '.+'])]
     public function index(): Response
     {
         $tree = new Folder($this->template, $this->theme);
 
         return $this->render('@MazariniDesign/design/index.html.twig', [
             'tree' => $tree,
+            'template' => '/design/index.html.twig',
+        ]);
+    }
+
+    #[Route('/{template}', name: 'mazarini_design_theme', requirements: ['template' => '.+'])]
+    public function theme(string $template): Response
+    {
+        $tree = new Folder($this->template, $this->theme);
+
+        return $this->render('@MazariniDesign/'.$template, [
+            'tree' => $tree,
+            'template' => $template,
         ]);
     }
 
