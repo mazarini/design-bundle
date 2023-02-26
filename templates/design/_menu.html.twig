@@ -1,10 +1,10 @@
 <!-- start menu -->
-<button type="button" class="invisible" id="menuModalButton" data-bs-toggle="modal" data-bs-target="#menuModal"></button>
-<div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
+<button type="button" class="invisible" id="menuDesignModalButton" data-bs-toggle="modal" data-bs-target="#menuDesignModal"></button>
+<div class="modal fade" id="menuDesignModal" tabindex="-1" aria-labelledby="menuDesignModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title fs-5" id="menuModalLabel">Menu</h1>
+                <h2 class="modal-title fs-5" id="menuDesignModalLabel">Menu</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -17,7 +17,7 @@
     document.addEventListener('keydown', (event) => {
         var name = event.key;
         if (name == "Escape") {
-            element = document.getElementById('menuModalButton').click();
+            element = document.getElementById('menuDesignModalButton').click();
         }
     }, false);
 </script>

@@ -23,7 +23,7 @@ namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ControllerTest extends WebTestCase
+class UrlTest extends WebTestCase
 {
     /**
      * @dataProvider okProvider
