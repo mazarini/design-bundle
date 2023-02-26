@@ -1,5 +1,4 @@
-{% extends 'base.html.twig' %}
-{% block static %}
-    {{ parent() }}
-    {% include '@MazariniDesign/design/_menu.html.twig' with {'template': template, 'tree': tree} only %}
+{% extends '@MazariniDesign/layout.html.twig' %}
+{% block body %}
+    <p>Press [ESC] to show menu and choose a template.</p>
 {% endblock %}
