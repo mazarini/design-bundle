@@ -1,0 +1,21 @@
+{% extends '@MazariniDesign/layout.html.twig' %}
+
+{% block main %}
+    toto
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        #body {
+            background-color: #FF0000;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        document.getElementById('container').remove();
+    </script>
+{% endblock %}

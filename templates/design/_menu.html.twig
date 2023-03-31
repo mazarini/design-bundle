@@ -1,5 +1,4 @@
 <!-- start menu -->
-<button type="button" class="invisible" id="menuDesignModalButton" data-bs-toggle="modal" data-bs-target="#menuDesignModal"></button>
 <div class="modal fade" id="menuDesignModal" tabindex="-1" aria-labelledby="menuDesignModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -12,13 +11,14 @@
             </div>
         </div>
     </div>
+    <button type="button" class="invisible" id="menuDesignModalButton" data-bs-toggle="modal" data-bs-target="#menuDesignModal"></button>
+    <script>
+        document.addEventListener('keydown', (event) => {
+            var name = event.key;
+            if (name == "Escape") {
+                element = document.getElementById('menuDesignModalButton').click();
+            }
+        }, false);
+    </script>
 </div>
-<script>
-    document.addEventListener('keydown', (event) => {
-        var name = event.key;
-        if (name == "Escape") {
-            element = document.getElementById('menuDesignModalButton').click();
-        }
-    }, false);
-</script>
 <!-- end menu -->

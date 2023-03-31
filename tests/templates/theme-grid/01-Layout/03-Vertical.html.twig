@@ -1,0 +1,48 @@
+{% extends '@MazariniDesign/layout.html.twig' %}
+
+{% block header %}
+    <h1>Header</h1>
+{% endblock %}
+
+{% block body %}
+    <h1 id="h1">section</h1>
+{% endblock %}
+
+{% block footer %}
+    <h1>Footer</h1>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        #body {
+            background-color: #0000FF;
+        }
+        #container {
+            background-color: #00FF00;
+        }
+        #header {
+            background-color: #FF0000;
+            border: 1px solid #000000;
+        }
+        #section {
+            background-color: #FFFF00;
+            border: 1px solid #000000;
+        }
+        #footer {
+            background-color: #FF0000;
+            border: 1px solid #000000;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        h1 = document.getElementById('h1');
+        document.getElementById('section').append(h1);
+        document.getElementById('primary').remove();
+        document.getElementById('article').remove();
+        document.getElementById('secondary').remove();
+    </script>
+{% endblock %}

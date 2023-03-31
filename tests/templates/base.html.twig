@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>
             {% block title %}
                 Mazarini Design
@@ -11,10 +12,28 @@
         {{ encore_entry_link_tags('app') }}
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
-        {% block main %}
-            {% block body %}{% endblock %}
-        {% endblock %}
+    <body id="body" class="front">
+        <div id="container" class="container">
+            {% block container %}
+                <header id="header">
+                    {% block header %}{% endblock %}
+                </header>
+                <section id="section" class="row">
+                    <aside id="primary" class="col-xl-2 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        {% block side_primary %}{% endblock %}
+                    </aside>
+                    <article id="article" class="col-xl-8 col-lg-9 col-md-9 col-sm-12 col-xs-12a">
+                        {% block body %}{% endblock %}
+                    </article>
+                    <aside id="secondary" class="col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        {% block side_secondary %}{% endblock %}
+                    </aside>
+                </section>
+                <footer id="footer">
+                    {% block footer %}{% endblock %}
+                </footer>
+            {% endblock %}
+        </div>
         {% block static %}{% endblock %}
         {{ encore_entry_script_tags('app') }}
         {% block javascripts %}{% endblock %}

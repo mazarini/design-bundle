@@ -1,0 +1,44 @@
+.visibility-xxl,
+.visibility-xl,
+.visibility-lg,
+.visibility-md,
+.visibility-sm,
+.visibility-xs {
+    visibility: hidden;
+}
+
+@media (min-width: 1400px) {
+    .visibility-xxl {
+        visibility: visible;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    .visibility-xl {
+        visibility: visible;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .visibility-lg {
+        visibility: visible;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .visibility-md {
+        visibility: visible;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .visibility-sm {
+        visibility: visible;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 575.98px) {
+    .visibility-xs {
+        visibility: visible;
+    }
+}

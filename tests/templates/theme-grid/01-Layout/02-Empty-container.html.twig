@@ -1,0 +1,17 @@
+{% extends '@MazariniDesign/layout.html.twig' %}
+
+{% block container %}
+    <h1>Container</h1>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        #body {
+            background-color: #FF0000;
+        }
+        #container {
+            background-color: #00FF00;
+        }
+    </style>
+{% endblock %}
