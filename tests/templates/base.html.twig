@@ -13,29 +13,100 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body id="body" class="front">
-        <div id="container" class="container">
-            {% block container %}
-                <header id="header">
-                    {% block header %}{% endblock %}
-                </header>
-                <section id="section" class="row">
-                    <aside id="primary" class="col-xl-2 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        {% block side_primary %}{% endblock %}
-                    </aside>
-                    <article id="article" class="col-xl-8 col-lg-9 col-md-9 col-sm-12 col-xs-12a">
-                        {% block body %}{% endblock %}
-                    </article>
-                    <aside id="secondary" class="col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        {% block side_secondary %}{% endblock %}
-                    </aside>
-                </section>
-                <footer id="footer">
-                    {% block footer %}{% endblock %}
-                </footer>
+        <header id="header">
+            {% block header %}
+                <div class="container brand">
+                    <div class="sociaux float-start">
+                        <h2>La Pomme de Pin</h2>
+                    </div>
+                    <div class="sociaux float-end">
+                        <img src="/images/instagram.png" class="float-end"/>
+                    </div>
+                    <div class="sociaux float-end">
+                        <img src="/images/facebook.png" class="float-end"/>
+                    </div>
+                </div>
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">La Pomme de Pin</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Dent-de-lion</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Menu Brasserie</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Menu Restaurant</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Photos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
             {% endblock %}
-        </div>
-        {% block static %}{% endblock %}
-        {{ encore_entry_script_tags('app') }}
-        {% block javascripts %}{% endblock %}
+        </header>
+        <div id="container" class="container">
+            <main id="main">
+                {% block body %}
+                    Main content
+                {% endblock %}
+            </main>
+            <section id="primary">
+                {% block primary %}
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-6 col-xxl-12">
+                            <h4 class="text-center">Adresse</h4>
+                            <p class="text-center">Café restaurant</p>
+                            <p class="text-center">A la Pomme de Pin</p>
+                            <p class="text-center">Rue Cité Derrière 11-13</p>
+                            <p class="text-center">1005 Lausanne</p>
+                        </div>
+                        <div class="col-6 col-xxl-12">
+                            <h4 class="text-center">Horaires</h4>
+                            <p class="text-center">Lundi à Vendredi: 08:00 à 24:00</p>
+                            <p class="text-center">Samedi: 18:00 à 24:00</p>
+                            <p class="text-center">Dimanche: Fermé</p>
+                        </div>
+                        <div class="col-6 col-xxl-12">
+                            <p class="text-center">Réservation par téléphone uniquement</p>
+                            <h4 class="text-center">021 323 46 56</h4>
+                        </div>
+                    {% endblock %}
+                </section>
+                <aside id="secondary">
+                    {% block secondary %}
+                        <p>L'appétit vient en mangeant et</p>
+                        <p>la soif s'en va en buvant.</p>
+                        <p class="f15">François Rabelais</p>
+                    {% endblock %}
+                </aside>
+            </div>
+            <footer id="footer">
+                {% block footer %}
+                    <div class="container">
+                        <p>Café restaurant La Pomme de Pin Rue Cité Derrière 11 1005 Lausanne</p>
+                        <p>Réservation par téléphone uniquement : tél. 021 323 46 56 fax 021 323 46 82</p>
+                    </div>
+                {% endblock %}
+            </footer>
+            {% block static %}{% endblock %}
+            {{ encore_entry_script_tags('app') }}
+            {% block javascripts %}{% endblock %}
+        </body>
     </body>
 </html>

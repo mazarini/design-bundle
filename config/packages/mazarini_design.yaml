@@ -1,3 +1,3 @@
 mazarini_design:
     template_dir: tests/templates
-    theme_dir: theme-grid
+    theme_dir: theme

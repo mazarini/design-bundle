@@ -4,31 +4,110 @@ html {
 
 body {
     min-height: 100vh;
+    background-color: #F3F3F3;
 }
 
 #container {
+    display: grid;
     min-height: 100vh;
+    min-height: 100svh;
+    margin-top: -270px;
+    padding-top: 270px;
+    margin-bottom: -90px;
+    padding-bottom: 90px;
+    background-color: #FFF;
+}
+
+.container {
+    max-width: 100%;
+}
+
+#main {
+    grid-area: main;
+    margin: 0 -12px;
+    padding: 0 12px;
+}
+
+#primary {
+    grid-area: primary;
+    background-color: #FFF;
+    margin: 0 -12px;
+    padding: 0 12px;
+}
+
+#secondary {
+    grid-area: secondary;
+    background-color: #EC8514;
+    margin: 0 -12px;
+    padding: 0 12px;
 }
 
 #header {
     position: relative;
     z-index: 2;
-    height: 58px;
-    margin: 0 -12px 0 -12px;
-    //    padding: 0 12px 0 12px;
+    height: 57px;
+    background-color: #FAFAFA;
+    box-shadow: var(--shd, 0 0 5px rgba(0, 0, 0, 0.7));
 }
 
-#section {
-    position: relative;
-    min-height: 100vh;
-    margin: -58px -12px -58px -12px;
-    padding: 58px 0 58px 0;
-}
+
 
 #footer {
-    position: relative;
     z-index: 2;
-    height: 58px;
-    margin: 0 -12px 0 -12px;
-    //    padding: 0 12px 0 12px;
+    height: 90px;
+    background-color: #F3F3F3;
+}
+
+@media(min-width:981px) {
+    .container {
+        max-width: 981px;
+    }
+}
+
+/* smartphone breakpoint */
+#container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 'primary' 'main' 'secondary';
+}
+
+/* tablet breakpoint */
+@media(min-width:768px) {
+    #container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto auto;
+        grid-template-areas: 'header' 'main' 'primary' 'secondary' 'footer';
+    }
+}
+
+/* tablet breakpoint */
+@media(min-width:992px) {
+    #header {
+        height: 270px;
+    }
+}
+
+/* desktop breakpoint */
+@media(min-width:1400px) {
+    .container {
+        width: 1381px;
+        max-width: 1381px;
+    }
+
+    #container {
+        grid-template-columns: 1fr 300px;
+        grid-template-rows: auto auto 1fr;
+        grid-template-areas: 'main primary' 'main secondary' 'main footer';
+    }
+}
+
+@media (min-width: 1400px) {
+    #primary {
+        .col-xxl-12 {
+            border: #F3F3F3 solid 1px;
+            background-color: #F3F3F3;
+            padding-bottom: 20px;
+            margin: 5px;
+        }
+    }
 }

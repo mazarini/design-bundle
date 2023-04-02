@@ -2,4 +2,5 @@
 {% block static %}
     {{ parent() }}
     {% include '@MazariniDesign/design/_menu.html.twig' with {'template': template, 'tree': tree} only %}
+    {% include '@MazariniDesign/design/_size.html.twig' %}
 {% endblock %}

@@ -4,41 +4,41 @@
 .visibility-md,
 .visibility-sm,
 .visibility-xs {
-    visibility: hidden;
+    display: none;
 }
 
 @media (min-width: 1400px) {
     .visibility-xxl {
-        visibility: visible;
+        display: block;
     }
 }
 
 @media (min-width: 1200px) and (max-width: 1399.98px) {
     .visibility-xl {
-        visibility: visible;
+        display: block;
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .visibility-lg {
-        visibility: visible;
+        display: block;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
     .visibility-md {
-        visibility: visible;
+        display: block;
     }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
     .visibility-sm {
-        visibility: visible;
+        display: block;
     }
 }
 
-@media (min-width: 768px) and (max-width: 575.98px) {
+@media (max-width: 575.98px) {
     .visibility-xs {
-        visibility: visible;
+        visibility: block;
     }
 }

@@ -1,9 +1,5 @@
 {% extends '@MazariniDesign/layout.html.twig' %}
 
-{% block main %}
-    toto
-{% endblock %}
-
 {% block stylesheets %}
     {{ parent() }}
     <style>
@@ -16,6 +12,8 @@
 {% block javascripts %}
     {{ parent() }}
     <script>
+        document.getElementById('header').remove();
         document.getElementById('container').remove();
+        document.getElementById('footer').remove();
     </script>
 {% endblock %}

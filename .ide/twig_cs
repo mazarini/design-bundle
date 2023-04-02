@@ -1,6 +1,9 @@
 <?php
 
-$finder = FriendsOfTwig\Twigcs\Finder\TemplateFinder::create()->in(__DIR__.'/../templates');
+$finder = FriendsOfTwig\Twigcs\Finder\TemplateFinder::create()
+    ->in(__DIR__.'/../templates')
+    ->in(__DIR__.'/../tests/templates')
+;
 
 return \FriendsOfTwig\Twigcs\Config\Config::create()
     // ...

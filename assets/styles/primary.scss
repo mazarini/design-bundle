@@ -1,0 +1,30 @@
+#primary {
+    display: grid;
+    padding: 46px;
+
+    p {
+        color: #EC8514;
+        font-size: 24px;
+        font-weight: 400;
+        font-stretch: 100%;
+        letter-spacing: 0em;
+        font-family: coquette-w00-light, sans-serif;
+    }
+
+    .col-6 {
+        padding-top: 20px;
+    }
+
+    h4 {
+        color: #EC8514;
+        font-stretch: 100%;
+        letter-spacing: 0em;
+        font-family: coquette-w00-light, sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+    }
+
+    p {
+        margin: 0 auto;
+    }
+}

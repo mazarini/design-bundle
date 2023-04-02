@@ -1,0 +1,55 @@
+{% extends '@MazariniDesign/layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        /* general column padding */
+        .container > * {
+            padding: 1rem;
+        }
+
+        /* assign columns to grid areas */
+        #header {
+            background: #f97171;
+        }
+        #main {
+            background: #fff;
+        }
+        #primary {
+            background: #f5d55f;
+        }
+        #secondary {
+            background: #c5ed77;
+        }
+        #footer {
+            background: #72c2f1;
+        }
+        #body {
+            background: #FF0000;
+        }
+        #container {
+            background: #00FF00;
+        }
+    </style>
+{% endblock %}
+
+{% block header %}
+    <h2>Header</h2>
+{% endblock %}
+
+{% block primary %}
+    <h2>Primary</h2>
+{% endblock %}
+
+{% block secondary %}
+    <h2>Secondary</h2>
+{% endblock %}
+
+{% block body %}
+    <h1>Main content</h1>
+    {% include '@MazariniDesign/design/_size.html.twig' %}
+{% endblock %}
+
+{% block footer %}
+    <h2>Footer</h2>
+{% endblock %}

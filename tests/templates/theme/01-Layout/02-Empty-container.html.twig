@@ -1,0 +1,24 @@
+{% extends '@MazariniDesign/layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        #body {
+            background-color: #FF0000;
+        }
+        #container {
+
+            background-color: #00FF00;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        document.getElementById('header').remove();
+        document.getElementById('primary').remove();
+        document.getElementById('secondary').remove();
+        document.getElementById('footer').remove();
+    </script>
+{% endblock %}
